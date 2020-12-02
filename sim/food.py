@@ -1,6 +1,6 @@
 import numpy as np
 import pygame
-from settings import YELLOW
+from sim.settings import YELLOW
 
 # Food objects are edible by Noodles, with a default nutrition value of 25, 
 # they spawn randomly or when a creature dies, which are worth more nutrition

@@ -3,8 +3,8 @@ import random
 import numpy as np
 import pygame
 from pygame import gfxdraw
-from settings import WIDTH, HEIGHT, GREEN, BLUE
-from helpers import fill_pie, circularize
+from sim.settings import WIDTH, HEIGHT, GREEN, BLUE
+from sim.helpers import fill_pie, circularize
 
 # Creature is the parent class for a creature in the simulation, 
 # with attributes such as health, speed, sight, and view angle 

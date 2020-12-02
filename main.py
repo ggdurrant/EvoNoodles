@@ -139,8 +139,8 @@ def main():
             for pred in preds[:]:
                 pancs.append(get_ancestors(pred))
             pred_history[max(pred_history.keys())] = log_attributes(preds, pancs)
-            log_history('noodle_checkpoint.csv', noodle_history)
-            log_history('pred_checkpoint.csv', pred_history)
+            log_history('data/noodle_checkpoint.csv', noodle_history)
+            log_history('data/pred_checkpoint.csv', pred_history)
             print('checkpoint saved...')
 
         # quit if all creatures dead
@@ -159,8 +159,8 @@ def main():
             pancs.append(get_ancestors(pred))
         pred_history[max(pred_history.keys())] = log_attributes(preds, pancs)
 
-        log_history('noodle_output.csv', noodle_history)
-        log_history('pred_output.csv', pred_history)
+        log_history('data/noodle_output.csv', noodle_history)
+        log_history('data/pred_output.csv', pred_history)
         print('history saved...')
 
     # end game

@@ -1,10 +1,10 @@
 import math
 import numpy as np
 import pygame.draw
-from settings import BLUE
-from noodle import Noodle
-from food import Food
-from helpers import circularize, fill_pie
+from sim.settings import BLUE
+from sim.noodle import Noodle
+from sim.food import Food
+from sim.helpers import circularize, fill_pie
 
 # Pred is a child of Creature class, with additional health and smart predator attributes
 class Pred(Noodle):

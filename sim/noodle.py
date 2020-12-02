@@ -1,7 +1,7 @@
 import pygame.draw
-from settings import GREEN
-from creature import Creature
-from food import Food
+from sim.settings import GREEN
+from sim.creature import Creature
+from sim.food import Food
 
 # Noodle is a child of Creature class, with prey attributes
 class Noodle(Creature):
