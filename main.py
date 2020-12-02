@@ -1,10 +1,10 @@
 import random
 import pygame
-from noodle import Noodle
-from pred import Pred
-from food import Food
-from settings import HEIGHT, WIDTH, BLACK, STARTING_NOODLES, STARTING_PREDS, TOTAL_FOOD
-from helpers import get_ancestors, log_attributes, log_history
+from sim.noodle import Noodle
+from sim.pred import Pred
+from sim.food import Food
+from sim.settings import HEIGHT, WIDTH, BLACK, STARTING_NOODLES, STARTING_PREDS, TOTAL_FOOD
+from sim.helpers import get_ancestors, log_attributes, log_history
 
 # if simulate, greatly speeds up sim to get mutation of multiple generations
 SIMULATE = False
