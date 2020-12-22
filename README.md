@@ -14,7 +14,7 @@ EvoNoodles is a natural selection simulator that looks at creatures, known as no
 
 ## Noodles
 
-<img src='/images/nood2.PNG'/>
+<img src='/images/nood2.PNG' width='250' height='250'/>
 
 Noodles are simple, (mainly) vegetarian creatures which search for food in their nearby enviornment. They attempt to find food at all times to replenish their health, with the goal of reproducing. Food appears regularly in their environment, or at the location of a dead noodle which they will also eat. 
 
@@ -37,7 +37,7 @@ These attributes all contribute to the loss function of a noodle, or how much en
 
 ## Preds
 
-<img src='/images/pred1.PNG'/>
+<img src='/images/pred1.PNG' width='300' height='310'/>
 
 Preds are the predators of the environment, with their prey being noodles. Preds are also smart creatures, which gives them two distinct advantages: 
  - Preds will chase the closest noodle to them, even if they already have a target, improving their hunting efficiency
@@ -109,11 +109,11 @@ Populations usually converge to the set of attributes with the highest fitness f
 
 An example simulation without predators shows how the population evolves to increase all of their attributes and loss. The more efficient noodles are also longer living as they evolve, shown in the average age of noodles towards the end, and their reproduction rate is selected as a necessarily beneficial trait. 
 
-The populations size, average age, total deaths, and average health over time:
+The populations' size, average age, total deaths, and average health over time:
 
 <img src='/images/trial13_living.png'/>
 
-The populations average attributes:
+The populations' average attributes:
 
 <img src='/images/trial13_attributes.png'/>
 
@@ -164,7 +164,7 @@ Other tools in the summary notebook allow for exploring statistics of individual
 
 Common ancestors' attributes can be viewed by epoch, showing over 80 living noodles who came from the same set of attributes in the 25th to last epoch. Just a few of the noodles came from ancestors who were much bigger, faster, and with better vision:
 
-<img src='/images/trial22_commonancestor.png'/>
+<img src='/images/trial22_commonancestor.PNG'/>
 
 And each noodle can be selected to see how their traits have changed over time through their ancestry tree:
 
