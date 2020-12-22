@@ -48,10 +48,6 @@ class Creature:
     # draw the sightline of a creature
     def percept(self, window):
         # find current theta
-        # if np.all((self.vel != 0)):
-        #     theta = math.degrees(math.atan2(self.vel[1], self.vel[0]))
-        # else:
-        #     theta = 0
         theta = math.degrees(math.atan2(self.vel[1], self.vel[0])) if np.all((self.vel != 0)) else 0
         theta = circularize(theta)
         self.theta = theta

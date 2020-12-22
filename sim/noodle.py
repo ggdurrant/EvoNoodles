@@ -6,9 +6,9 @@ from sim.food import Food
 # Noodle is a child of Creature class, with prey attributes
 class Noodle(Creature):
     
+    # initialize noodle with nutrition value and ate attribute 
     def __init__(self, x, y, size, speed, sight, view, rep, color=GREEN):
         super().__init__(x, y, size, speed, sight, view, rep, color)
-        # give nutrition value and ate attribute
         self.nut = 150
         self.ate = False
 

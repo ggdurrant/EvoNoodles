@@ -3,16 +3,11 @@
 # width and height of pygame screen
 WIDTH = 1100
 HEIGHT = 700
-# WIDTH = 1100*2
-# HEIGHT = 700*2
 
 # starting numbers of noodles, preds, and food
 TOTAL_FOOD = 48
 STARTING_NOODLES = 24
-STARTING_PREDS = 3
-# TOTAL_FOOD = 36
-# STARTING_NOODLES = 8
-# STARTING_PREDS = 2
+STARTING_PREDS = 2
 
 # constants for colors
 BLACK = (0,0,0)

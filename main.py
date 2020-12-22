@@ -13,6 +13,7 @@ SAVE = False
 
 # method to run simulation
 def main():
+
     # initialize pygame
     pygame.init()
     game_display = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -58,7 +59,6 @@ def main():
 
     # main loop
     while running:
-
         # if simulate, speed up, else run at set FPS
         if SIMULATE:
             clock.tick(1080)
