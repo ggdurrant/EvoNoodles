@@ -11,8 +11,8 @@ class Pred(Noodle):
     
     def __init__(self, x, y, size, speed, sight, view, rep, color=BLUE):
         super().__init__(x, y, size, speed, sight, view, rep, color)
-        self.health = self.health*1.5
-        self.max_health = self.max_health*1.5
+        self.health = self.health*2
+        self.max_health = self.max_health*2
         # smart predators will chase closer prey even if a target already found
         # won't chase prey if sufficient health, to avoid overeating/wasting prey
         self.smart = True

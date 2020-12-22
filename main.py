@@ -9,7 +9,7 @@ from sim.helpers import get_ancestors, log_attributes, log_history
 # if simulate, greatly speeds up sim to get mutation of multiple generations
 SIMULATE = False
 # if save, will save output of noodles and preds in csv file
-SAVE = True
+SAVE = False
 
 # method to run simulation
 def main():
@@ -52,7 +52,7 @@ def main():
     for i in range(STARTING_NOODLES):
         noodles.append(Noodle(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(6,10), random.randint(1,4), random.randint(30,200), random.randint(20,120), random.randint(15,35)))
     for i in range(STARTING_PREDS):
-        preds.append(Pred(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(8,12), random.randint(3,4), random.randint(60,300), random.randint(10,40), random.randint(25,45)))
+        preds.append(Pred(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(8,12), random.randint(3,5), random.randint(200,400), random.randint(10,40), random.randint(25,45)))
     for i in range(TOTAL_FOOD):
         foods.append(Food(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10)))
 
@@ -101,7 +101,8 @@ def main():
                         noodle.food_target = None
                         noodle.smooth_counter = 0
                 foods.remove(food)
-                food_timer += 3
+                # food_timer += 3
+                food_timer += 0
         # if a food recently eaten, don't add a food until timer goes down
         if food_timer > 0:
             food_timer -= 1
@@ -112,10 +113,11 @@ def main():
             while len(foods)<TOTAL_FOOD:
                 foods.append(Food(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10)))
 
-        # immigrant noodle every 5000 steps
-        if total_steps%5000 == 0:
-            if random.random() < 0.8:
-                noodles.append(Noodle(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(4,12), random.randint(1,5), random.randint(30,200), random.randint(20,140), random.randint(15,35)))
+        # potential immigrant noodle every 5000 steps, immigrant pred every 20000 steps
+        if total_steps%5000 == 0 and total_steps > 0 and random.random() < 0.8:
+            noodles.append(Noodle(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(4,12), random.randint(1,5), random.randint(30,200), random.randint(20,140), random.randint(15,35)))
+        if total_steps%20000 == 0 and total_steps > 0 and random.random() < 0.8:
+            preds.append(Pred(random.randint(10, WIDTH-10), random.randint(10, HEIGHT-10), random.randint(8,12), random.randint(3,5), random.randint(200,400), random.randint(10,40), random.randint(25,45)))
 
         # update total system age
         total_steps += 1
@@ -130,7 +132,7 @@ def main():
             pred_history[int(total_steps/500)] = log_attributes(preds)
 
         # save checkpoint log every 10000 steps if save
-        if total_steps%10000 == 0 and SAVE:
+        if total_steps%25000 == 0 and SAVE:
             ancs = []
             for noodle in noodles[:]:
                 ancs.append(get_ancestors(noodle))

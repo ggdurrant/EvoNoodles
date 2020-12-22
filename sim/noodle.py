@@ -9,7 +9,7 @@ class Noodle(Creature):
     def __init__(self, x, y, size, speed, sight, view, rep, color=GREEN):
         super().__init__(x, y, size, speed, sight, view, rep, color)
         # give nutrition value and ate attribute
-        self.nut = 100
+        self.nut = 150
         self.ate = False
 
     # draw circular noodle

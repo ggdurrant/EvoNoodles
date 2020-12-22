@@ -48,10 +48,11 @@ class Creature:
     # draw the sightline of a creature
     def percept(self, window):
         # find current theta
-        if np.all((self.vel != 0)):
-            theta = math.degrees(math.atan2(self.vel[1], self.vel[0]))
-        else:
-            theta = 0
+        # if np.all((self.vel != 0)):
+        #     theta = math.degrees(math.atan2(self.vel[1], self.vel[0]))
+        # else:
+        #     theta = 0
+        theta = math.degrees(math.atan2(self.vel[1], self.vel[0])) if np.all((self.vel != 0)) else 0
         theta = circularize(theta)
         self.theta = theta
         # find points defining creature's view wrt theta
@@ -66,6 +67,8 @@ class Creature:
         vector = target - self.pos
         norm = (vector[0]**2 + vector[1]**2)**0.5
         output = vector/norm * self.speed
+        if np.isnan(output).any():
+            output = np.array([random.uniform(0,WIDTH), random.uniform(0,HEIGHT)], dtype='float64')
         self.vel = output
         self.pos += self.vel
 
@@ -231,22 +234,23 @@ class Creature:
             if random.random()*100 < self.rep:
                 # make sure offspring has traits within bounds
                 while trait_violation:
-                    if rep_mutation:
-                        random_trait = random.randint(0,4)
-                    else:
-                        random_trait = random.randint(0,3)
+                    # if rep_mutation:
+                    #     random_trait = random.randint(0,4)
+                    # else:
+                    #     random_trait = random.randint(0,3)
+                    random_trait = random.randint(0,4) if rep_mutation else random.randint(0,3)
                     offspring_traits = [self.size, self.speed, self.sight, self.view, self.rep] 
                     if random_trait == 0:
-                        mut_val = random.randint(-5,5)
+                        mut_val = random.randint(-2,2)
                     elif random_trait == 1:
                         mut_val = random.randint(-1,1)
                     elif random_trait == 2 or random_trait == 3:
-                        mut_val = random.randint(-20, 20)
+                        mut_val = random.randint(-15, 15)
                     elif random_trait == 4:
                         mut_val = random.randint(-5,5)
                     offspring_traits[random_trait] += mut_val
 
-                    if offspring_traits[0]>3 and offspring_traits[0]<20 and offspring_traits[1]>0 and offspring_traits[2]>5 and offspring_traits[3]>5 and offspring_traits[3]<180 and offspring_traits[4]<100:
+                    if offspring_traits[0]>3 and offspring_traits[0]<30 and offspring_traits[1]>0 and offspring_traits[2]>5 and offspring_traits[3]>5 and offspring_traits[3]<180 and offspring_traits[4]<100:
                         trait_violation = False
 
                 # create new offspring with mutated traits
